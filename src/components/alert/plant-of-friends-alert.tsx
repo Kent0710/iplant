@@ -28,7 +28,10 @@ export const PlantOfFriendsAlert = component$(
     });
 
     return (
-      <AlertWrapper activeAlert={activeAlert} alertAdditionalClass="w-[25rem] max-w-[25rem]">
+      <AlertWrapper
+        activeAlert={activeAlert}
+        alertAdditionalClass="w-[25rem] max-w-[25rem]"
+      >
         <AlertWrapperTitle>Plant of Friends</AlertWrapperTitle>
         <p>Search for your friend's plant.</p>
 
@@ -38,7 +41,10 @@ export const PlantOfFriendsAlert = component$(
             class="h-[2rem] w-full rounded-xl bg-white px-3 py-3 text-sm focus:border-none focus:outline-none"
             placeholder="Friend's username..."
             value={searchTerm.value}
-            onInput$={(e) => (searchTerm.value = e.target.value)}
+            onInput$={(e) => {
+              const target = e.target as HTMLInputElement;
+              searchTerm.value = target.value;
+            }}
           />
         </div>
 
@@ -56,9 +62,7 @@ export const PlantOfFriendsAlert = component$(
                 ))}
               </ul>
             ) : (
-                <>
-                    No users found
-                </>
+              <>No users found</>
             )}
           </section>
         )}
