@@ -1,0 +1,1 @@
+import{T as t}from"./q-C6CURFjb.js";import{b as s,a as e}from"./q-DF_DLGXC.js";import"./q-uemlvruI.js";const l="/assets/svMTSd7K-settings.png",r=()=>s("section",null,{class:"w-1/5 bg-[#297F01] p-5 flex flex-col justify-between items-end"},[e(t,null,3,"5s_0"),s("img",null,{src:l,alt:"img",width:300,height:300,class:"h-10 w-auto"},null,3,null)],1,"5s_1");export{r as s_BwmN3t78B5g};

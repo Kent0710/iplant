@@ -1,0 +1,1 @@
+import{_ as t}from"./q-uemlvruI.js";const o=()=>t(()=>import("./q-CcNhtd1Z.js"),[]),s=[["/",[o,()=>t(()=>import("./q-CpIe-nRu.js"),[])]],["app/",[o,()=>t(()=>import("./q-CXIxzc2k.js"),[])]]],r=[];const e=!0;export{e as c,r as m,s as r};

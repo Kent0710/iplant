@@ -1,0 +1,1 @@
+import{u as o}from"./q-DF_DLGXC.js";import{d as s}from"./q-BMms06cy.js";import"./q-uemlvruI.js";const u=()=>{const[e]=o();return s.filter(r=>r.username.toLowerCase().includes(e.value.toLowerCase()))};export{u as s_Uohy933b0V4};

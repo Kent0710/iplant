@@ -1,0 +1,1 @@
+import{u as n}from"./q-DF_DLGXC.js";import{i as S}from"./q-DF_DLGXC.js";const m=async(c,t)=>{const[r]=n(),e=new FormData(t),a=new URLSearchParams;e.forEach((o,s)=>{typeof o=="string"&&a.append(s,o)}),await r("?"+a.toString(),{type:"form",forceReload:!0})};export{S as _hW,m as s_N8pzSD00mT0};
