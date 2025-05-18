@@ -3,8 +3,6 @@ import { component$, useSignal, useComputed$ } from "@builder.io/qwik";
 import { AlertWrapper, AlertWrapperTitle } from "./alert-wrapper";
 import type { AlertWrapperProps } from "./alert-wrapper";
 
-import { LuSearch } from "@qwikest/icons/lucide";
-
 const dummyUsers = [
   { username: "sunflower_joy" },
   { username: "greenThumb123" },

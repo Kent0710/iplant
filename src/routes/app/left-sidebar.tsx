@@ -1,4 +1,4 @@
-import { component$, useSignal } from "@builder.io/qwik";
+import { $, component$, useSignal } from "@builder.io/qwik";
 
 import GrowMode from "../../../public/grow-mode.png";
 import DecayMode from "../../../public/decay-mode.png";
@@ -61,7 +61,7 @@ const LeftSidebarItem = component$(
   ({ text, imageUrl, onClick$ }: LeftSidebarItemProps) => {
     return (
       <button
-        onClick$={onClick$}
+        onClick$={$(onClick$)}
         class="flex flex-col items-center text-neutral-800 transition-transform hover:scale-110"
       >
         <img
