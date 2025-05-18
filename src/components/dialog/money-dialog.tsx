@@ -1,0 +1,72 @@
+import { component$ } from "@builder.io/qwik";
+
+import MoneyDialogImage from "../../../public/money-dialog.png";
+import { DialogWrapper, DialogItem } from "./dialog-wrapper";
+
+const moneyPerks = [
+  {
+    name: "Daily Stipend",
+    description: "Earn a small amount of money each day just for showing up.",
+  },
+  {
+    name: "Bonus Collector",
+    description: "Get extra coins when completing tasks or achievements.",
+  },
+  {
+    name: "Interest Accrual",
+    description:
+      "Accumulate passive income based on your current coin balance.",
+  },
+  {
+    name: "Double Earnings",
+    description:
+      "Temporarily doubles all coin rewards earned during activities.",
+  },
+  {
+    name: "Treasure Hunt",
+    description: "Chance to discover hidden money during random moments.",
+  },
+  {
+    name: "Auto-Save",
+    description:
+      "Automatically sets aside a percentage of your coins for future use.",
+  },
+  {
+    name: "Mystery Payout",
+    description: "Occasionally receive surprise coin drops of varying amounts.",
+  },
+  {
+    name: "Goal Bonus",
+    description: "Earn a large payout for hitting personal milestones.",
+  },
+  {
+    name: "Trade Exchange",
+    description:
+      "Convert other resources (like water or power) into money at set rates.",
+  },
+  {
+    name: "Coin Multiplier",
+    description: "Increases all coin gains by a flat percentage permanently.",
+  },
+];
+
+interface MoneyDialogProps {
+  activeDialog: any;
+}
+
+export const MoneyDialog = component$(({ activeDialog }: MoneyDialogProps) => {
+  return (
+    <DialogWrapper activeDialog={activeDialog}>
+      <ul class="my-9 h-[50dvh] w-full space-y-3 overflow-y-auto">
+        {moneyPerks.map((perk) => (
+          <DialogItem
+            key={perk.name}
+            taskName={perk.name}
+            imageUrl={MoneyDialogImage}
+            taskDescription={perk.description}
+          />
+        ))}
+      </ul>
+    </DialogWrapper>
+  );
+});
