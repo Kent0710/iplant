@@ -1,1 +1,0 @@
-import{u as i}from"./q-DF_DLGXC.js";import{i as u}from"./q-DF_DLGXC.js";const p=async(a,e)=>{const[t,r,o,s]=i();a.defaultPrevented&&(e.hasAttribute("q:nbs")?await t(location.href,{type:"popstate"}):e.href&&(e.setAttribute("aria-pressed","true"),await t(e.href,{forceReload:r,replaceState:o,scroll:s}),e.removeAttribute("aria-pressed")))};export{u as _hW,p as s_oyeBwn0ha7Y};

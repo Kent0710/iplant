@@ -1,4 +1,4 @@
-import { $, component$, useSignal } from "@builder.io/qwik";
+import { component$, useSignal } from "@builder.io/qwik";
 
 import GrowMode from "../../../public/grow-mode.png";
 import DecayMode from "../../../public/decay-mode.png";
@@ -57,25 +57,24 @@ interface LeftSidebarItemProps {
   onClick$: () => void;
 }
 
-const LeftSidebarItem = component$(
-  ({ text, imageUrl, onClick$ }: LeftSidebarItemProps) => {
-    return (
-      <button
-        onClick$={$(onClick$)}
-        class="flex flex-col items-center text-neutral-800 transition-transform hover:scale-110"
-      >
-        <img
-          src={imageUrl}
-          alt={text}
-          width={300}
-          height={300}
-          class="h-[7rem] w-auto drop-shadow-md"
-        />
-        <p class="font-bold drop-shadow-sm">{text}</p>
-      </button>
-    );
-  },
-);
+const LeftSidebarItem = component$(({ text, imageUrl, onClick$ }: LeftSidebarItemProps) => {
+  return (
+    <button
+      // eslint-disable-next-line qwik/valid-lexical-scope
+      onClick$={onClick$} 
+      class="flex flex-col items-center text-neutral-800 transition-transform hover:scale-110"
+    >
+      <img
+        src={imageUrl}
+        alt={text}
+        width={300}
+        height={300}
+        class="h-[7rem] w-auto drop-shadow-md"
+      />
+      <p class="font-bold drop-shadow-sm">{text}</p>
+    </button>
+  );
+});
 
 const styles = `
   @keyframes slideDown {

@@ -1,1 +1,0 @@
-import{p as e,l as o}from"./q-6cQxbWGt.js";import{i as p}from"./q-DF_DLGXC.js";import"./q-uemlvruI.js";const n=(i,t)=>{var r;if(!((r=navigator.connection)!=null&&r.saveData)&&t&&t.href){const a=new URL(t.href);e(a.pathname),t.hasAttribute("data-prefetch")&&o(a,t,{prefetchSymbols:!1,isPrefetch:!0})}};export{p as _hW,n as s_NiiCH6xZSZc};

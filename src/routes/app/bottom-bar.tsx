@@ -1,4 +1,4 @@
-import { $, component$, useSignal } from "@builder.io/qwik";
+import {  component$, useSignal } from "@builder.io/qwik";
 
 import Coins from "../../../public/coins.png";
 import Rewards from "../../../public/rewards.png";
@@ -65,7 +65,8 @@ const BottomBarItem = component$(
   ({ text, imageUrl, onClick$ }: BottomBarItemProps) => {
     return (
       <button
-        onClick$={$(onClick$)}
+        // eslint-disable-next-line qwik/valid-lexical-scope
+        onClick$={onClick$}
         class="flex flex-col items-center transition-transform hover:scale-110"
       >
         <img
