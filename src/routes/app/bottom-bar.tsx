@@ -1,4 +1,4 @@
-import {  component$, useSignal } from "@builder.io/qwik";
+import { component$, useSignal } from "@builder.io/qwik";
 
 import Coins from "../../../public/coins.png";
 import Rewards from "../../../public/rewards.png";
@@ -11,6 +11,7 @@ import { RewardsDialog } from "~/components/dialog/rewards-dialog";
 import { QuestsDialog } from "~/components/dialog/quests-dialog";
 import { PowerDialog } from "~/components/dialog/power-dialog";
 import { MoneyDialog } from "~/components/dialog/money-dialog";
+import { CalendarDialog } from "~/components/dialog/calendar-dialog";
 
 const items = [
   { text: "Money", imageUrl: Coins },
@@ -50,6 +51,9 @@ export const BottomBar = component$(() => {
       )}
       {activeDialog.value === "Money" && (
         <MoneyDialog activeDialog={activeDialog} />
+      )}
+      {activeDialog.value === "Calendar" && (
+        <CalendarDialog activeDialog={activeDialog} />
       )}
     </section>
   );

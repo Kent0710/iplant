@@ -16,7 +16,7 @@ export const AlertWrapper = component$(
         }}
       >
         <div
-          class={`animate-slideDown mt-4 ${alertAdditionalClass ? alertAdditionalClass : "w-[30rem] max-w-[30rem]"} rounded-b-lg bg-gradient-to-br from-green-600 to-teal-500 p-6 shadow-2xl`}
+          class={`animate-slideDown mt-4 ${alertAdditionalClass ? alertAdditionalClass : "w-[30rem] max-w-[30rem]"} rounded-xl bg-gradient-to-br from-green-600 to-teal-500 p-6 shadow-2xl`}
           onClick$={(event) => {
             event.stopPropagation(); // Prevent closing when clicking inside the alert
           }}

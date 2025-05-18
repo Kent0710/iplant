@@ -1,6 +1,6 @@
 import { component$, Slot } from "@builder.io/qwik";
 
-interface DialogWrapperProps {
+export interface DialogWrapperProps {
   activeDialog: any;
 }
 export const DialogWrapper = component$(

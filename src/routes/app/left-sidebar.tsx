@@ -3,7 +3,9 @@ import { component$, useSignal } from "@builder.io/qwik";
 import GrowMode from "../../../public/grow-mode.png";
 import DecayMode from "../../../public/decay-mode.png";
 import PlantOfFriends from "../../../public/plant-of-friends.png";
-import CustomizeYourPlant from "../../../public/customize-your-plant.png";
+import CustomizeYourPlant from '../../../public/customize-your-plant.png'
+
+import { CustomizeYourPlantAlert } from "~/components/alert/customize-your-plant-alert";
 import { GrowModeAlert } from "~/components/alert/grow-mode-alert";
 import { DecayModeAlert } from "~/components/alert/decay-mode-alert";
 import { PlantOfFriendsAlert } from "~/components/alert/plant-of-friends-alert";
@@ -21,7 +23,7 @@ export const LeftSidebar = component$(() => {
 
   return (
     <section class="flex w-1/5 justify-center bg-[#297F01]">
-      <div class="flex flex-col justify-around py-[3rem]">
+      <div class="flex flex-col justify-around py-[1rem]">
         {items.map((item) => (
           <LeftSidebarItem
             key={item.text}
@@ -44,8 +46,11 @@ export const LeftSidebar = component$(() => {
       {activeAlert.value === "Decay Mode" && (
         <DecayModeAlert activeAlert={activeAlert} />
       )}
-        {activeAlert.value === "Plant of Friends" && (
+      {activeAlert.value === "Plant of Friends" && (
         <PlantOfFriendsAlert activeAlert={activeAlert} />
+      )}
+      {activeAlert.value === "Customize Your Plant" && (
+        <CustomizeYourPlantAlert activeAlert={activeAlert} />
       )}
     </section>
   );
@@ -57,24 +62,26 @@ interface LeftSidebarItemProps {
   onClick$: () => void;
 }
 
-const LeftSidebarItem = component$(({ text, imageUrl, onClick$ }: LeftSidebarItemProps) => {
-  return (
-    <button
-      // eslint-disable-next-line qwik/valid-lexical-scope
-      onClick$={onClick$} 
-      class="flex flex-col items-center text-neutral-800 transition-transform hover:scale-110"
-    >
-      <img
-        src={imageUrl}
-        alt={text}
-        width={300}
-        height={300}
-        class="h-[7rem] w-auto drop-shadow-md"
-      />
-      <p class="font-bold drop-shadow-sm">{text}</p>
-    </button>
-  );
-});
+const LeftSidebarItem = component$(
+  ({ text, imageUrl, onClick$ }: LeftSidebarItemProps) => {
+    return (
+      <button
+        // eslint-disable-next-line qwik/valid-lexical-scope
+        onClick$={onClick$}
+          class="flex flex-col items-center text-neutral-800 transition-transform hover:scale-110 bg-[#A9C353] rounded-xl shadow-xl p-2 hover:shadow-[#A9C353] hover:shadow-md"
+      >
+        <img
+          src={imageUrl}
+          alt={text}
+          width={300}
+          height={300}
+          class="h-[7rem] w-auto drop-shadow-md"
+        />
+        <p class="font-bold drop-shadow-sm">{text}</p>
+      </button>
+    );
+  },
+);
 
 const styles = `
   @keyframes slideDown {
