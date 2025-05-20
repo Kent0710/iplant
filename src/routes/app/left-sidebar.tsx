@@ -1,19 +1,21 @@
 import { component$, useSignal } from "@builder.io/qwik";
 
-import GrowMode from "../../../public/grow-mode.png";
-import DecayMode from "../../../public/decay-mode.png";
-import PlantOfFriends from "../../../public/plant-of-friends.png";
-import CustomizeYourPlant from '../../../public/customize-your-plant.png'
+import PlantOfFriends from "../../../public/plantoffriends.png";
+import CustomizeYourPlant from "../../../public/customizeyourplant.png";
+import TimeCapsule from "../../../public/time-capsule.png";
+import FocusRoom from "../../../public/focus-room.png";
 
 import { CustomizeYourPlantAlert } from "~/components/alert/customize-your-plant-alert";
-import { GrowModeAlert } from "~/components/alert/grow-mode-alert";
-import { DecayModeAlert } from "~/components/alert/decay-mode-alert";
+
 import { PlantOfFriendsAlert } from "~/components/alert/plant-of-friends-alert";
+import { TimeCapsuleAlert } from "~/components/alert/time-capsule-alert";
+import { FocusRoomAlert } from "~/components/alert/focus-room-alert";
+import { Link } from "@builder.io/qwik-city";
 
 const items = [
-  { text: "Grow Mode", imageUrl: GrowMode },
-  { text: "Decay Mode", imageUrl: DecayMode },
+  { text: "Time Capsule", imageUrl: TimeCapsule },
   { text: "Plant of Friends", imageUrl: PlantOfFriends },
+  { text: "Focus Room", imageUrl: FocusRoom },
   { text: "Customize Your Plant", imageUrl: CustomizeYourPlant },
 ];
 
@@ -24,6 +26,7 @@ export const LeftSidebar = component$(() => {
   return (
     <section class="flex w-1/5 justify-center bg-[#297F01]">
       <div class="flex flex-col justify-around py-[1rem]">
+        <Link href="/app">Go back to your plant</Link>
         {items.map((item) => (
           <LeftSidebarItem
             key={item.text}
@@ -40,11 +43,11 @@ export const LeftSidebar = component$(() => {
           />
         ))}
       </div>
-      {activeAlert.value === "Grow Mode" && (
-        <GrowModeAlert activeAlert={activeAlert} />
+      {activeAlert.value === "Time Capsule" && (
+        <TimeCapsuleAlert activeAlert={activeAlert} />
       )}
-      {activeAlert.value === "Decay Mode" && (
-        <DecayModeAlert activeAlert={activeAlert} />
+      {activeAlert.value === "Focus Room" && (
+        <FocusRoomAlert activeAlert={activeAlert} />
       )}
       {activeAlert.value === "Plant of Friends" && (
         <PlantOfFriendsAlert activeAlert={activeAlert} />
@@ -68,7 +71,7 @@ const LeftSidebarItem = component$(
       <button
         // eslint-disable-next-line qwik/valid-lexical-scope
         onClick$={onClick$}
-          class="flex flex-col items-center text-neutral-800 transition-transform hover:scale-110 bg-[#A9C353] rounded-xl shadow-xl p-2 hover:shadow-[#A9C353] hover:shadow-md"
+        class="flex flex-col items-center rounded-xl bg-[#A9C353] p-2 text-neutral-800 shadow-xl transition-transform hover:scale-110 hover:shadow-md hover:shadow-[#A9C353]"
       >
         <img
           src={imageUrl}

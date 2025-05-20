@@ -1,5 +1,8 @@
 import { component$, Slot } from "@builder.io/qwik";
 import type { RequestHandler } from "@builder.io/qwik-city";
+import { CoinProvider } from "~/providers/coin-provider";
+import { InventoryProvider } from "~/providers/inventory-provider";
+import { TimePassedProvider } from "~/providers/time-passed-provider";
 
 export const onGet: RequestHandler = async ({ cacheControl }) => {
   // Control caching for this request for best performance and to reduce hosting costs:
@@ -13,5 +16,13 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
 };
 
 export default component$(() => {
-  return <Slot />;
+  return (
+    <CoinProvider>
+      <InventoryProvider>
+        <TimePassedProvider>
+          <Slot />
+        </TimePassedProvider>
+      </InventoryProvider>
+    </CoinProvider>
+  );
 });

@@ -17,6 +17,9 @@ export const DialogWrapper = component$(
           style={{
             backgroundImage: "url('../../../public/landscape.png')",
           }}
+          onClick$={(event) => {
+            event.stopPropagation(); // Prevent closing when clicking inside the alert
+          }}
         >
           <h2 class="text-xl font-bold">{activeDialog.value}</h2>
           <p>Complete tasks to earn rewards.</p>

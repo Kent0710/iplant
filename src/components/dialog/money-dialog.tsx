@@ -1,70 +1,44 @@
 import { component$ } from "@builder.io/qwik";
-
-import MoneyDialogImage from "../../../public/money-dialog.png";
-import { DialogWrapper, DialogItem } from "./dialog-wrapper";
-
-const moneyPerks = [
-  {
-    name: "Daily Stipend",
-    description: "Earn a small amount of money each day just for showing up.",
-  },
-  {
-    name: "Bonus Collector",
-    description: "Get extra coins when completing tasks or achievements.",
-  },
-  {
-    name: "Interest Accrual",
-    description:
-      "Accumulate passive income based on your current coin balance.",
-  },
-  {
-    name: "Double Earnings",
-    description:
-      "Temporarily doubles all coin rewards earned during activities.",
-  },
-  {
-    name: "Treasure Hunt",
-    description: "Chance to discover hidden money during random moments.",
-  },
-  {
-    name: "Auto-Save",
-    description:
-      "Automatically sets aside a percentage of your coins for future use.",
-  },
-  {
-    name: "Mystery Payout",
-    description: "Occasionally receive surprise coin drops of varying amounts.",
-  },
-  {
-    name: "Goal Bonus",
-    description: "Earn a large payout for hitting personal milestones.",
-  },
-  {
-    name: "Trade Exchange",
-    description:
-      "Convert other resources (like water or power) into money at set rates.",
-  },
-  {
-    name: "Coin Multiplier",
-    description: "Increases all coin gains by a flat percentage permanently.",
-  },
-];
+import { DialogWrapper } from "./dialog-wrapper";
+import RewardsDialogImage from "../../../public/rewards-dialog.png";
 
 interface MoneyDialogProps {
   activeDialog: any;
 }
 
+interface AdItemProps {
+  index: number;
+}
+
+const AdItem = component$(({ index }: AdItemProps) => {
+  return (
+    <li class="mr-5 flex items-center gap-2 rounded-xl border border-green-500 p-2">
+      <div class="flex items-center gap-4">
+        <img
+          src={RewardsDialogImage}
+          width={100}
+          height={100}
+          alt="Ad"
+          class="h-12 w-auto shrink-0 rounded"
+        />
+        <div class="flex-1">
+          <p class="font-medium">Watch Ad #{index + 1}</p>
+          <p class="text-sm text-gray-500">Earn rewards by watching this ad.</p>
+        </div>
+        <button class="rounded bg-green-600 px-4 py-1 text-white hover:bg-green-700">
+          Watch Ad
+        </button>
+      </div>
+    </li>
+  );
+});
+
 export const MoneyDialog = component$(({ activeDialog }: MoneyDialogProps) => {
   return (
     <DialogWrapper activeDialog={activeDialog}>
       <ul class="my-9 h-[50dvh] w-full space-y-3 overflow-y-auto">
-        {moneyPerks.map((perk) => (
-          <DialogItem
-            key={perk.name}
-            taskName={perk.name}
-            imageUrl={MoneyDialogImage}
-            taskDescription={perk.description}
-          />
+        {Array.from({ length: 5 }).map((_, index) => (
+          <AdItem key={index} index={index} />
         ))}
       </ul>
     </DialogWrapper>

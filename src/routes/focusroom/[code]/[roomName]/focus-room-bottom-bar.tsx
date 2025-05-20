@@ -1,33 +1,33 @@
 import { component$, useSignal } from "@builder.io/qwik";
 
-import Coins from "../../../public/coins.png";
-import Rewards from "../../../public/rewards.png";
-import Inventory from '../../../public/inventory.png'
-import Quests from "../../../public/quests.png";
-import Calendar from "../../../public/calendar.png";
-import Power from "../../../public/power.png";
+import Coins from "../../../../../public/coins.png";
+import Rewards from "../../../../../public/rewards.png";
+import Water from "../../../../../public/water.png";
+import Quests from "../../../../../public/quests.png";
+import Calendar from "../../../../../public/calendar.png";
+import Power from "../../../../../public/power.png";
 
+// Assuming these dialog components exist or will be created
 import { QuestsDialog } from "~/components/dialog/quests-dialog";
 import { PowerDialog } from "~/components/dialog/power-dialog";
 import { CalendarDialog } from "~/components/dialog/calendar-dialog";
 import { RewardsDialog } from "~/components/dialog/rewards-dialog";
 import { MoneyDialog } from "~/components/dialog/money-dialog";
-import { InventoryDialog } from "~/components/dialog/inventory-dialog";
 
 const items = [
-  { text: "Money", imageUrl: Coins },
-  { text: "Inventory", imageUrl: Inventory },
+  { text: "Group Coins", imageUrl: Coins },
   { text: "Rewards", imageUrl: Rewards },
+  { text: "Water", imageUrl: Water },
   { text: "Quests", imageUrl: Quests },
   { text: "Calendar", imageUrl: Calendar },
   { text: "Power", imageUrl: Power },
 ];
 
-export const BottomBar = component$(() => {
+export const FocusRoomBottomBar = component$(() => {
   const activeDialog = useSignal<string | null>(null);
 
   return (
-    <section class="absolute bottom-0 h-[10rem] w-full">
+    <section class=" w-full">
       <div class="flex h-full items-center justify-around px-[3rem]">
         {items.map((item) => (
           <BottomBarItem
@@ -41,11 +41,8 @@ export const BottomBar = component$(() => {
           />
         ))}
       </div>
-      {activeDialog.value === "Money" && (
+      {activeDialog.value === "Group Coins" && (
         <MoneyDialog activeDialog={activeDialog} />
-      )}
-        {activeDialog.value === "Inventory" && (
-        <InventoryDialog activeDialog={activeDialog} />
       )}
       {activeDialog.value === "Quests" && (
         <QuestsDialog activeDialog={activeDialog} />
@@ -69,11 +66,10 @@ interface BottomBarItemProps {
   onClick$: () => void;
 }
 
-export const BottomBarItem = component$(
+const BottomBarItem = component$(
   ({ text, imageUrl, onClick$ }: BottomBarItemProps) => {
     return (
       <button
-        // eslint-disable-next-line qwik/valid-lexical-scope
         onClick$={onClick$}
         class="flex flex-col items-center transition-transform hover:scale-110"
       >
@@ -90,6 +86,7 @@ export const BottomBarItem = component$(
   },
 );
 
+// Inject animation styles into the document
 const styles = `
   @keyframes gameFadeIn {
     from { background-color: rgba(0, 0, 0, 0); }
@@ -123,7 +120,6 @@ const styles = `
   }
 `;
 
-// Inject styles into the document
 if (typeof document !== "undefined") {
   const styleSheet = document.createElement("style");
   styleSheet.textContent = styles;

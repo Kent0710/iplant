@@ -5,9 +5,10 @@ interface ButtonProps {
   onClick$?: PropFunction<() => void>;
   variant?: 'primary' | 'secondary' | 'dark';
   additionalClass? : string;
+  disabled? : boolean;
 }
 
-export const Button = component$(({ onClick$, variant = 'primary', additionalClass }: ButtonProps) => {
+export const Button = component$(({ onClick$, variant = 'primary', additionalClass, disabled }: ButtonProps) => {
   const baseClasses = "px-8 py-2 rounded-full text-[#2E8E01] text-[#2E8E01] font-semibold";
 
   // Define variant classes object with const assertion for stricter typing
@@ -20,6 +21,7 @@ export const Button = component$(({ onClick$, variant = 'primary', additionalCla
   return (
     <button
       onClick$={onClick$}
+      disabled={disabled}
       class={`${baseClasses} ${additionalClass} ${variantClasses[variant]}`}
     >
       <Slot />
